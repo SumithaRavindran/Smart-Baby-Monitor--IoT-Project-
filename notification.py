@@ -24,7 +24,7 @@ mail_settings = {
 	"MAIL_PORT": 465,
 	"MAIL_USE_TLS": False,
 	"MAIL_USE_SSL": True,
-	"MAIL_USERNAME": 'mail2guliani@gmail.com',
+	"MAIL_USERNAME": '***********@gmail.com',
 	"MAIL_PASSWORD": 'Testing@123'
 }
 
@@ -33,8 +33,8 @@ mail_settings = {
 def sendSMS(body):
 	client = Client(sms_settings['account_sid'], sms_settings['auth_token'])
 	client.messages.create(
-							from_ = "+13142660764",
-							to = "+14252365925",
+							from_ = "+**********",
+							to = "+**********",
 							body = body
 						  )
 # Function to send email on the user's email address #
@@ -43,7 +43,7 @@ def sendEmail(body):
 	message = MIMEMultipart()
 	message["Subject"] = "Baby Monitor: Temperature Details !!"
 	message["From"] = mail_settings['MAIL_USERNAME']
-	message["To"] = 'sumitha0895@gmail.com'
+	message["To"] = '**************@gmail.com'
 	
 	html = """<html><body>"""+body+"""</body></html>"""
 	htmlBody = MIMEText(html, "html")
@@ -55,7 +55,7 @@ def sendEmail(body):
 		server.login(mail_settings['MAIL_USERNAME'], mail_settings['MAIL_PASSWORD'])
 		server.sendmail(
 				mail_settings['MAIL_USERNAME'], 
-				'sumitha0895@gmail.com', 
+				'************@gmail.com', 
 				message.as_string())
 		server.close()
 
