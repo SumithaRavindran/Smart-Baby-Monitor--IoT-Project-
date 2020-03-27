@@ -1,5 +1,4 @@
 # Smart-Baby-Monitor--IoT-Project
-# Author: Sumitha Ravindran
 # Smart Baby Monitor with Python,IBM Watson(MQTT) and AWS MySql 
 
  Smart Baby Monitor consists of Six components: 
