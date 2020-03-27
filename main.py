@@ -2,7 +2,8 @@
 
 #******TCSS573 IoT Project by Group 12********** #
 # ********Baby Monitor************************** #
-# Authors : Sumitha                              #
+# Authors : Sumitha & Simerpreet                 #
+
 
 # This modeule is the main module where are all the other sub-modules get integrated #
 # and executed #
