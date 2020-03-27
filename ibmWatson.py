@@ -1,5 +1,6 @@
 #**********Project TCS573 - Group 12***************#
-#**********Sumitha Ravindran (1978232)*************#
+#**********Sumitha Ravindran          *************#
+#**********Simerpreet Kaur            *************#
 
 # This file assists to connect to IBM Watson Platform #
 
