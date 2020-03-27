@@ -12,8 +12,8 @@ from email.mime.multipart import MIMEMultipart
 
 # Credentials for Twilio sms service #
 sms_settings = {
-	'account_sid': "AC40b382ed0de1c1f09711527417039cfb",
-	'auth_token': "f09a42162b02ecdce696b544470c6a0e"
+	'account_sid': "**********",
+	'auth_token': "***********"
 }
 
 # Credentials and settings for Gmail SMTP #
@@ -31,8 +31,8 @@ mail_settings = {
 def sendSMS(body):
 	client = Client(sms_settings['account_sid'], sms_settings['auth_token'])
 	client.messages.create(
-							from_ = "+13142660764",
-							to = "+14252365925",
+							from_ = "+1XXXXXXXXX",
+							to = "+1XXXXXXXXXX",
 							body = body
 						  )
 # Function to send email on the user's email address #
@@ -53,7 +53,7 @@ def sendEmail(body):
 		server.login(mail_settings['MAIL_USERNAME'], mail_settings['MAIL_PASSWORD'])
 		server.sendmail(
 				mail_settings['MAIL_USERNAME'], 
-				'sumitha0895@gmail.com', 
+				'ZZZZZ@gmail.com', 
 				message.as_string())
 		server.close()
 
