@@ -1,0 +1,393 @@
+[
+    {
+        "id": "2da89839.c415c8",
+        "type": "tab",
+        "label": "Baby Monitor",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "9fad9af7.639108",
+        "type": "grove digital sensor",
+        "z": "2da89839.c415c8",
+        "name": "DHT11",
+        "board": "906066e5.7b2178",
+        "sensor": "dht11",
+        "repeat": "1",
+        "pin": "6",
+        "x": 130,
+        "y": 120,
+        "wires": [
+            [
+                "8bb85581.f798a8",
+                "7a2031a.bea83d"
+            ]
+        ]
+    },
+    {
+        "id": "7eafec59.6441f4",
+        "type": "grove digital sensor",
+        "z": "2da89839.c415c8",
+        "name": "Ultrasonic Ranger",
+        "board": "ba8b9d11.0f6fa",
+        "sensor": "ultrasonic",
+        "repeat": "5",
+        "pin": "2",
+        "x": 190,
+        "y": 360,
+        "wires": [
+            [
+                "32cd4d8a.81c652"
+            ]
+        ]
+    },
+    {
+        "id": "6c64d2af.34b65c",
+        "type": "grove digital sensor",
+        "z": "2da89839.c415c8",
+        "name": "Baby Temperature",
+        "board": "ba8b9d11.0f6fa",
+        "sensor": "dht11",
+        "repeat": "10",
+        "pin": "6",
+        "x": 190,
+        "y": 480,
+        "wires": [
+            [
+                "ee30a1c7.7ef93"
+            ]
+        ]
+    },
+    {
+        "id": "32cd4d8a.81c652",
+        "type": "function",
+        "z": "2da89839.c415c8",
+        "name": "Notification",
+        "func": "var data = msg.payload;\nif (data <= 20)\n{\n    msg.payload = \"Baby is moving in the cradle\"\n}\nelse\n{\n    msg.payload = \"Baby is sleeping\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 410,
+        "y": 360,
+        "wires": [
+            [
+                "762907cc.c9cc48",
+                "3dbfbd99.758902"
+            ]
+        ]
+    },
+    {
+        "id": "762907cc.c9cc48",
+        "type": "debug",
+        "z": "2da89839.c415c8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 570,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "7a2031a.bea83d",
+        "type": "function",
+        "z": "2da89839.c415c8",
+        "name": "Humidity",
+        "func": "\nrnd = Math.floor ( (Math.random() * 4) + 42);\nmsg.payload = rnd;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 360,
+        "y": 180,
+        "wires": [
+            [
+                "c74f1e66.cf682",
+                "8a25786c.0598e8"
+            ]
+        ]
+    },
+    {
+        "id": "8bb85581.f798a8",
+        "type": "function",
+        "z": "2da89839.c415c8",
+        "name": "Temperature",
+        "func": "\nrnd = Math.floor ( (Math.random() * 4) + 21);\nmsg.payload = rnd;\nreturn msg;\n\n/*return(\n    [\n        \n        { payload:msg.payload.temperature }\n        \n    ]\n      );*/",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 350,
+        "y": 40,
+        "wires": [
+            [
+                "eb5d123c.68a66",
+                "52857e89.d15e"
+            ]
+        ]
+    },
+    {
+        "id": "8a25786c.0598e8",
+        "type": "debug",
+        "z": "2da89839.c415c8",
+        "name": "Humidity",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 530,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "c74f1e66.cf682",
+        "type": "ui_gauge",
+        "z": "2da89839.c415c8",
+        "name": "Room Humidity",
+        "group": "490b2d18.9c5974",
+        "order": 1,
+        "width": 12,
+        "height": 4,
+        "gtype": "gage",
+        "title": "",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "33",
+        "seg2": "66",
+        "x": 570,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "eb5d123c.68a66",
+        "type": "ui_gauge",
+        "z": "2da89839.c415c8",
+        "name": "Room Temperature",
+        "group": "765a9cf6.43d904",
+        "order": 1,
+        "width": 12,
+        "height": 4,
+        "gtype": "gage",
+        "title": "",
+        "label": "Celcius",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "45",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "15",
+        "seg2": "30",
+        "x": 570,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "52857e89.d15e",
+        "type": "debug",
+        "z": "2da89839.c415c8",
+        "name": "Temperature",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 600,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "ee30a1c7.7ef93",
+        "type": "function",
+        "z": "2da89839.c415c8",
+        "name": "Baby Temp",
+        "func": "\nrnd = Math.floor ( Math.random() * (103 - 95) + 95 );\nmsg.payload = rnd;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 430,
+        "y": 480,
+        "wires": [
+            [
+                "3cc62e9e.96c5a2"
+            ]
+        ]
+    },
+    {
+        "id": "3cc62e9e.96c5a2",
+        "type": "ui_gauge",
+        "z": "2da89839.c415c8",
+        "name": "Baby Temperature",
+        "group": "8d853637.b252e8",
+        "order": 7,
+        "width": 12,
+        "height": 4,
+        "gtype": "gage",
+        "title": "",
+        "label": "Fahrenheit",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "113",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "40",
+        "seg2": "75",
+        "x": 650,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "3dbfbd99.758902",
+        "type": "ui_text",
+        "z": "2da89839.c415c8",
+        "d": true,
+        "group": "78ac231c.f2a13c",
+        "order": 1,
+        "width": 6,
+        "height": 4,
+        "name": "Baby Movements",
+        "label": "Baby Movements",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 630,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "120d040e.b4688c",
+        "type": "grove analog sensor",
+        "z": "2da89839.c415c8",
+        "name": "Sound sensor",
+        "pin": "2",
+        "sensor": "sound",
+        "repeat": "5",
+        "board": "ba8b9d11.0f6fa",
+        "x": 180,
+        "y": 580,
+        "wires": [
+            [
+                "64534733.23e478"
+            ]
+        ]
+    },
+    {
+        "id": "64534733.23e478",
+        "type": "function",
+        "z": "2da89839.c415c8",
+        "name": "Sound sensor",
+        "func": "var value = msg.payload;\nif (value <= 110)\n{\n    msg.payload = \"Baby is CALM\"\n}\nelse\n{\n    msg.payload = \"Baby is CRYING\"\n}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 430,
+        "y": 580,
+        "wires": [
+            [
+                "fc1fe350.021c8"
+            ]
+        ]
+    },
+    {
+        "id": "fc1fe350.021c8",
+        "type": "ui_text",
+        "z": "2da89839.c415c8",
+        "d": true,
+        "group": "fa14106f.f6c3e",
+        "order": 1,
+        "width": 6,
+        "height": 4,
+        "name": "Baby Cry",
+        "label": "Baby Sounds",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 640,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "906066e5.7b2178",
+        "type": "board-config",
+        "z": "",
+        "board": "GrovePi"
+    },
+    {
+        "id": "ba8b9d11.0f6fa",
+        "type": "board-config",
+        "z": "",
+        "board": "GrovePi"
+    },
+    {
+        "id": "490b2d18.9c5974",
+        "type": "ui_group",
+        "z": "",
+        "name": "Room Humidity",
+        "tab": "b47d067c.0da8c8",
+        "order": 3,
+        "disp": true,
+        "width": 12,
+        "collapse": true
+    },
+    {
+        "id": "765a9cf6.43d904",
+        "type": "ui_group",
+        "z": "",
+        "name": "Room Temperature",
+        "tab": "b47d067c.0da8c8",
+        "order": 4,
+        "disp": true,
+        "width": 12,
+        "collapse": true
+    },
+    {
+        "id": "8d853637.b252e8",
+        "type": "ui_group",
+        "z": "",
+        "name": "Baby Temperature",
+        "tab": "b47d067c.0da8c8",
+        "order": 6,
+        "disp": true,
+        "width": 12,
+        "collapse": true
+    },
+    {
+        "id": "78ac231c.f2a13c",
+        "type": "ui_group",
+        "z": "",
+        "name": "Home",
+        "tab": "b47d067c.0da8c8",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": true
+    },
+    {
+        "id": "fa14106f.f6c3e",
+        "type": "ui_group",
+        "z": "",
+        "name": "Temparature",
+        "tab": "b47d067c.0da8c8",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": true
+    },
+    {
+        "id": "b47d067c.0da8c8",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
