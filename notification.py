@@ -31,8 +31,8 @@ mail_settings = {
 def sendSMS(body):
 	client = Client(sms_settings['account_sid'], sms_settings['auth_token'])
 	client.messages.create(
-							from_ = "+1XXXXXXXXX",
-							to = "+1XXXXXXXXXX",
+							from_ = "XXXXXXXXX",
+							to = "XXXXXXXXXX",
 							body = body
 						  )
 # Function to send email on the user's email address #
