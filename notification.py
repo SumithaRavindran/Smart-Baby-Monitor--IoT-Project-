@@ -1,6 +1,7 @@
 
 #**********Project TCS573 - Group 12***************#
 #**********Sumitha Ravindran          *************#
+#**********Simerpreet Kaur            *************#
 
 # This module is used to send email and sms notifications based on the baby's body #
 # temperature and asks the user to take appropriate action #
