@@ -1,6 +1,7 @@
 
 #**********Project TCS573 - Group 12***************#
 #**********Sumitha Ravindran          *************#
+#**********Simerpreet Kaur            **************#
 
 from grovepi import *
 
